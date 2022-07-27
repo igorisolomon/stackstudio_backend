@@ -5,21 +5,6 @@ from django.template.defaultfilters import slugify
 from django_quill.fields import QuillField
 
 
-# class UserManager(BaseUserManager):
-
-#     def create_user(self, username, password=None, **extra_fields):
-#         user = self.model(username=username, **extra_fields)
-#         user.set_password(password)
-#         user.save(using=self.db)
-
-#         return user
-    
-
-# class User(AbstractBaseUser, PermissionsMixin):
-#     username = models.CharField(_("username"), max_length=250, unique=True)
-
-
-
 class Company(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(_("company name"), max_length=50, blank=True)

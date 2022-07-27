@@ -5,14 +5,6 @@ from rest_framework import serializers
 from core import models
 
 
-class UserSerializer(serializers.ModelField):
-    class Meta:
-        model = get_user_model()
-        fields = ("username", "password")
-        # fields = "__all__"
-        extra_kwargs = {"password": {"write_only": True, "min_length": 5}}
-
-
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField(
