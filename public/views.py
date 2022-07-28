@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import mixins
 from rest_framework import generics
 from core import models
-from core import serializers
+from public import serializers
 
 
 class CompanyView(viewsets.ViewSet):
@@ -13,8 +13,6 @@ class CompanyView(viewsets.ViewSet):
     """
 
     def retrieve(self, request, pk=None):
-        # queryset = User.objects.all()
-        # user = get_object_or_404(queryset, pk=pk)
         queryset = models.Company.objects.all().first()
         serializer = serializers.CompanySerializer(queryset, many=False)
         return Response(serializer.data)
@@ -23,7 +21,7 @@ class CompanyView(viewsets.ViewSet):
 class BlogList(mixins.ListModelMixin, generics.GenericAPIView):
 
     queryset = models.Blog.objects.all()
-    serializer_class = serializers.BlogSerializer
+    serializer_class = serializers.ListSerializer
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -41,7 +39,7 @@ class BlogDetail(mixins.RetrieveModelMixin, generics.GenericAPIView):
 class PodcastList(mixins.ListModelMixin, generics.GenericAPIView):
 
     queryset = models.Podcast.objects.all()
-    serializer_class = serializers.PodcastSerializer
+    serializer_class = serializers.ListSerializer
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)

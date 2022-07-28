@@ -40,16 +40,14 @@ class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Blog
         fields = "__all__"
-        read_only_fields = ['slug', ]
-        ordering = ['-published_date']
+        read_only_fields = ['slug',]
 
 
 class PodcastSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Podcast
         fields = "__all__"
-        read_only_fields = ['slug', ]
-        ordering = ['-published_date']
+        read_only_fields = ['slug',]
 
 
 # class LoginSerializer(serializers.Serializer):

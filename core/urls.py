@@ -6,7 +6,6 @@ router = routers.DefaultRouter()
 router.register(r'company', views.CompanyViewSet)
 router.register(r'blog', views.BlogViewSet)
 router.register(r'podcast', views.PodcastViewSet)
-router.register(r'podcast-feature', views.PodcastFeatureViewSet)
 
 company_view = views.CompanyView.as_view({'get': 'retrieve'})
 

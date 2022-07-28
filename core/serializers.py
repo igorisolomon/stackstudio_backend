@@ -24,11 +24,3 @@ class PodcastSerializer(serializers.ModelSerializer):
         fields = "__all__"
         read_only_fields = ['slug',]
         ordering = ['-published_date']
-
-
-class PodcastFeatureSerializer(serializers.ModelSerializer):
-    podcast_features = PodcastSerializer(many=False, read_only=True)
-
-    class Meta:
-        model = models.PodcastFeature
-        fields = "__all__"

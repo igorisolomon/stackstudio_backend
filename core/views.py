@@ -31,14 +31,6 @@ class PodcastViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.PodcastSerializer
 
 
-class PodcastFeatureViewSet(viewsets.ModelViewSet):
-    """
-    A simple ViewSet for viewing and editing accounts.
-    """
-    queryset = models.PodcastFeature.objects.all()
-    serializer_class = serializers.PodcastFeatureSerializer
-
-
 class CompanyView(mixins.ListModelMixin, mixins.RetrieveModelMixin, generics.GenericAPIView):
     """
     Retrieve About
