@@ -36,6 +36,7 @@ class Podcast(models.Model):
     published_date = models.DateTimeField(
         _("published date"), auto_now=False, auto_now_add=False)
     title = models.CharField(_("title"), max_length=50, blank=True)
+    is_published = models.BooleanField(_("is published"), default=False)
     body_html = models.TextField(_("rich text"), blank=True)
     body = models.TextField(_("plain text"), blank=True)
     published_link = models.URLField(

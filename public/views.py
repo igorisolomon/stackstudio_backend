@@ -20,7 +20,7 @@ class CompanyView(viewsets.ViewSet):
 
 class BlogList(mixins.ListModelMixin, generics.GenericAPIView):
 
-    queryset = models.Blog.objects.all()
+    queryset = models.Blog.objects.filter(is_published=True)
     serializer_class = serializers.ListSerializer
 
     def get(self, request, *args, **kwargs):
@@ -38,7 +38,7 @@ class BlogDetail(mixins.RetrieveModelMixin, generics.GenericAPIView):
 
 class PodcastList(mixins.ListModelMixin, generics.GenericAPIView):
 
-    queryset = models.Podcast.objects.all()
+    queryset = models.Podcast.objects.filter(is_published=True)
     serializer_class = serializers.ListSerializer
 
     def get(self, request, *args, **kwargs):
