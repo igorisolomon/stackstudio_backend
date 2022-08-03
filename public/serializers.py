@@ -17,7 +17,7 @@ class CompanySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Company
-        exclude = ['id', ]
+        fields = "__all__"
 
 
 class BlogSerializer(serializers.ModelSerializer):
