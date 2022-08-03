@@ -5,6 +5,7 @@ from rest_framework.settings import api_settings
 from rest_framework.response import Response
 from rest_framework import mixins
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from core import models
 from admin import serializers
 from public.serializers import ListSerializer
@@ -21,6 +22,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
     """
     queryset = models.Company.objects.all()
     serializer_class = serializers.CompanySerializer
+    permission_classes = [IsAuthenticated]
 
     def list(self, request, pk=None):
         queryset = models.Company.objects.all().first()
@@ -34,6 +36,7 @@ class BlogViewSet(viewsets.ModelViewSet):
     """
     queryset = models.Blog.objects.all()
     serializer_class = serializers.BlogSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class PodcastViewSet(viewsets.ModelViewSet):
@@ -42,12 +45,14 @@ class PodcastViewSet(viewsets.ModelViewSet):
     """
     queryset = models.Podcast.objects.all()
     serializer_class = serializers.PodcastSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class BlogList(mixins.ListModelMixin, generics.GenericAPIView):
 
     queryset = models.Blog.objects.all()
     serializer_class = ListSerializer
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -57,6 +62,7 @@ class PodcastList(mixins.ListModelMixin, generics.GenericAPIView):
 
     queryset = models.Podcast.objects.all()
     serializer_class = ListSerializer
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
