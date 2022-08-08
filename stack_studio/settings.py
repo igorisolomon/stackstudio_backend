@@ -110,6 +110,7 @@ DATABASES = {
         'USER': env('USER'),
         'HOST': env('HOST'),
         'PORT': env('PORT'),
+        'PASSWORD': env('PASSWORD'),
     }
 }
 
