@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import User, AbstractBaseUser, \
+    BaseUserManager, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 from django.template.defaultfilters import slugify
 
@@ -8,7 +9,8 @@ class Company(models.Model):
     name = models.CharField(_("company name"), max_length=50, blank=True)
     logo = models.ImageField(
         _("logo"), upload_to="images", blank=True, null=True)
-    podcast_title=models.CharField(_("podcast title"), max_length=250, blank=True)
+    podcast_title = models.CharField(
+        _("podcast title"), max_length=250, blank=True)
     google_podcast = models.URLField(
         _("google podcast"), max_length=200, blank=True)
     about = models.TextField(_("about"), blank=True)
