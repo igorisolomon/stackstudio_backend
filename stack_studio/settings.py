@@ -35,7 +35,14 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '52.56.234.213',
+    'localhost',
+    '127.0.0.1',
+    'stackstud.io',
+    'api.stackstud.io',
+    'admin.stackstud.io'
+]
 
 
 # Application definition
@@ -158,6 +165,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://127.0.0.1:3000",
-    "https://stackstudio.com",
-    "https://admin.stackstudio.com",
+    "http://52.56.234.213",
+    "https://stackstud.io",
+    "https://admin.stackstud.io",
+    "https://api.stackstud.io",
 ]
