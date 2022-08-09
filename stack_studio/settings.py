@@ -37,6 +37,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
     '52.56.234.213',
+    '52.56.234.213:8000',
     'localhost',
     '127.0.0.1',
     'stackstud.io',
